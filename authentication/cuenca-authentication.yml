@@ -1,0 +1,42 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-python (http/client.py, jwt.py, README)
+docs: https://github.com/cuenca-mx/cuenca-python#authentication
+summary:
+  types: [http-basic, jwt, session-token]
+  api_key_in: [http-basic]
+  notes: >-
+    Cuenca has no OpenAPI/OAuth2 scope surface. Primary auth is an API key +
+    secret sent as HTTP Basic. Optional short-lived JWTs and login/session
+    tokens layer on top for delegated/user-scoped access.
+schemes:
+- name: apiKeySecretBasic
+  type: http
+  scheme: basic
+  description: >-
+    Primary credential: an API key (id prefixed `PK...`) and API secret sent as
+    HTTP Basic auth on every request. Configured via CUENCA_API_KEY /
+    CUENCA_API_SECRET env vars or cuenca.configure(api_key=..., api_secret=...).
+  credential_prefix: PK
+- name: jwt
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: >-
+    Optional JWT auth (cuenca.configure(use_jwt=True)). A JWT is created from the
+    API key/secret and auto-renewed when under 5 minutes to expiry. Requires
+    sufficient permissions on the credential.
+- name: loginToken
+  type: apiKey
+  in: header
+  parameterName: X-Cuenca-LoginToken
+  description: >-
+    A LoginToken (7-day validity, created via biometric/user login) supplied in
+    the X-Cuenca-LoginToken header for user-scoped sessions.
+- name: sessionId
+  type: apiKey
+  in: header
+  parameterName: X-Cuenca-SessionId
+  description: Session identifier supplied in the X-Cuenca-SessionId header.
+headers:
+  api_version: X-Cuenca-Api-Version
