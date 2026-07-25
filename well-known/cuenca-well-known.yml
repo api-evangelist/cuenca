@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of api.cuenca.com, sandbox.cuenca.com, cuenca.com
+detail: >-
+  No valid /.well-known/ discovery documents were found. api.cuenca.com returns
+  404 for security.txt / openid-configuration / oauth-authorization-server;
+  cuenca.com returns HTTP 200 for these paths but the body is the marketing SPA
+  index (text/html), not a real well-known document, so nothing is saved.
+hosts:
+- host: https://api.cuenca.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://cuenca.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    valid: false
+    note: SPA catch-all HTML, not an RFC 9116 document.
+  - path: /.well-known/openid-configuration
+    status: 200
+    valid: false
+    note: SPA catch-all HTML, not an OIDC discovery document.

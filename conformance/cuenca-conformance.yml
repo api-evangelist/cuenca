@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: derived
+source: https://github.com/cuenca-mx/cuenca-python + Mexican payments-rail context
+detail: >-
+  Standards conformance derived from the SDK/API surface and the Mexican banking
+  rails Cuenca operates on. No published certification program (SOC 2 / ISO / PCI
+  attestations) was found on cuenca.com, so no `Compliance` pointer is emitted.
+standards:
+- id: spei
+  conforms: true
+  evidence: TransferNetwork.spei; SPEI (Banxico interbank real-time rail) is a first-class transfer network.
+- id: clabe
+  conforms: true
+  evidence: CLABE account numbers issued/validated (clabes resource; open-source clabe-python/clabe-js).
+- id: cep-banxico
+  conforms: true
+  evidence: CEP (Comprobante Electronico de Pago) receipts supported via open-source cep-python.
+- id: oauth2
+  conforms: false
+  evidence: Auth is API key + secret (HTTP Basic) + JWT, not OAuth2 authorization flows.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a { json, status_code } envelope, not application/problem+json.
+- id: idempotency
+  conforms: true
+  evidence: idempotency_key on transfer creation (request-body field).
+- id: cursor-pagination
+  conforms: true
+  evidence: next_page_uri cursor pagination with page_size/created_before/created_after params.
+- id: webhooks
+  conforms: true
+  evidence: Registered endpoints receive typed WebhookEvent deliveries.
+- id: pci-dss
+  conforms: false
+  evidence: No public PCI DSS attestation found (Cuenca issues cards but publishes no compliance page).

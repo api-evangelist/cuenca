@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx
+packages:
+- language: python
+  registry: pypi
+  name: cuenca
+  url: https://pypi.org/project/cuenca/
+  install: pip install cuenca
+  repository: https://github.com/cuenca-mx/cuenca-python
+  official: true
+  description: Official Cuenca Python client library for the api.cuenca.com REST API.
+- language: python
+  registry: pypi
+  name: cuenca-validations
+  url: https://pypi.org/project/cuenca-validations/
+  install: pip install cuenca-validations
+  repository: https://github.com/cuenca-mx/cuenca-validations
+  official: true
+  description: Shared pydantic validation types (requests, queries, enums) used across cuenca-python and Cuenca services.
+- language: java
+  registry: maven
+  name: com.cuenca:CuencaJava
+  url: https://search.maven.org/artifact/com.cuenca/CuencaJava
+  install: "implementation 'com.cuenca:CuencaJava:1.0.2'"
+  repository: https://github.com/cuenca-mx/cuenca-java
+  official: true
+  description: Official Cuenca Java client library.
+- language: javascript
+  registry: npm
+  name: cuenca-shipping
+  url: https://www.npmjs.com/package/cuenca-shipping
+  install: npm install cuenca-shipping
+  repository: https://github.com/cuenca-mx/cuenca-shipping
+  official: true
+  description: >-
+    Stencil web component to collect customer shipping addresses (client-side UI,
+    not a server SDK — see components/cuenca-components.yml).

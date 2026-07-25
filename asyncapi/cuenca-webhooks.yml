@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-python (resources/webhooks.py, resources/endpoints.py) + cuenca-validations (enums.WebhookEvent)
+spec_type: Webhooks
+detail: >-
+  Cuenca delivers events to HTTP endpoints the developer registers via the
+  Endpoint resource (create/update/deactivate/retrieve/query). Delivered Webhook
+  objects carry an `event` type and a `payload` object. No AsyncAPI document is
+  published; this captures the webhook event catalog verbatim from the SDK enums.
+delivery:
+  registration_resource: endpoints
+  webhook_object_fields:
+    event: The WebhookEvent type being reported.
+    payload: The object sent by the webhook.
+events:
+- card_transaction.create
+- card_transaction.update
+- user.create
+- user.update
+- user.delete
+- transaction.create
+- transaction.update
+- deposit.create
+- deposit.update
+- withdrawal.create
+- withdrawal.update
+- cash_deposit.create
+- cash_deposit.update
+- bank_account.create
+- bank_account.update
+event_types:
+- create
+- update
+- delete

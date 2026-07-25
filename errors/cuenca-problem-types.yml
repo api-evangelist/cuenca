@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: derived
+source: https://github.com/cuenca-mx/cuenca-python (exc.py) + HTTP semantics
+format: json
+envelope:
+  shape: "{ json: <object>, status_code: <int> }"
+  detail: >-
+    Errors are surfaced by the SDK as CuencaResponseException(json, status_code).
+    The JSON body carries the API error payload; status_code is the HTTP status.
+  note: >-
+    Cuenca does not publish an RFC 9457 problem+json contract; this catalog is
+    derived from the SDK exception hierarchy and standard HTTP status handling.
+client_exceptions:
+- name: CuencaException
+  detail: Base exception class for all client-side errors.
+- name: CuencaResponseException
+  detail: Raised on a non-2xx API response; carries json body + status_code.
+- name: MalformedJwtToken
+  detail: An invalid JWT was obtained during authentication.
+- name: NoResultFound
+  detail: A `.one()` / `.first()` query returned no results.
+- name: MultipleResultsFound
+  detail: A `.one()` query expected a single result but multiple were returned.
+http_statuses:
+- status: 400
+  title: Bad request
+  detail: Malformed or invalid request payload.
+- status: 401
+  title: Unauthorized
+  detail: Missing or invalid API key/secret, JWT, or login/session token.
+- status: 403
+  title: Forbidden
+  detail: Credential lacks permission for the operation.
+- status: 404
+  title: Not found
+  detail: Referenced resource does not exist.
+- status: 409
+  title: Conflict
+  detail: Idempotency / duplicate resource conflict.
+- status: 422
+  title: Unprocessable entity
+  detail: Validation failed (cuenca-validations pydantic models).
+- status: 500
+  title: Internal server error

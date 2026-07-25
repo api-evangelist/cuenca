@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: https://github.com/cuenca-mx/cuenca-python (resources/*)
+note: >-
+  Cuenca publishes no OpenAPI, so skill steps are grounded in real, documented
+  Python SDK operations (verified in cuenca-python resources/), not invented
+  operationIds.
+skills:
+- file: cuenca-send-spei-transfer.md
+  name: Send a SPEI transfer idempotently
+  api: https://github.com/cuenca-mx/cuenca-python
+  operations: [Transfer.create, Transfer.retrieve, Transfer.all, Balance.retrieve]
+- file: cuenca-receive-webhook-events.md
+  name: Register and consume webhook events
+  api: https://github.com/cuenca-mx/cuenca-python
+  operations: [Endpoint.create, Endpoint.all, Webhook.retrieve]

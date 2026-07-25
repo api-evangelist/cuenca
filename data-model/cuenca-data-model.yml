@@ -1,0 +1,128 @@
+generated: '2026-07-18'
+method: derived
+source: https://github.com/cuenca-mx/cuenca-python (resources/*) + cuenca-validations (queries.py id-reference fields)
+detail: >-
+  Entity graph derived from the Python SDK resource classes and the shared
+  query-parameter reference fields (user_id, platform_id, related_transaction,
+  destination_uri). Cuenca publishes no OpenAPI, so relationships are inferred
+  from documented SDK id-reference fields, not from $ref links.
+id_reference_fields:
+- user_id
+- platform_id
+- related_transaction
+- destination_uri
+entities:
+- name: User
+  resource: users
+  notes: Account holder (physical or moral); root of most graphs.
+- name: Platform
+  resource: platforms
+- name: Account
+  resource: accounts
+- name: Clabe
+  resource: clabes
+- name: Balance
+  resource: balance_entries
+- name: Transfer
+  resource: transfers
+- name: WhatsappTransfer
+  resource: whatsapp_transfers
+- name: Deposit
+  resource: deposits
+- name: CashReference
+  resource: cash_references
+- name: Card
+  resource: cards
+- name: CardTransaction
+  resource: card_transactions
+- name: CardActivation
+  resource: card_activations
+- name: BillPayment
+  resource: bill_payments
+- name: ServiceProvider
+  resource: service_providers
+- name: WalletTransaction
+  resource: wallet_transactions
+- name: LimitedWallet
+  resource: limited_wallets
+- name: Savings
+  resource: savings
+- name: Commission
+  resource: commissions
+- name: Statement
+  resource: statements
+- name: ApiKey
+  resource: api_keys
+- name: Endpoint
+  resource: endpoints
+- name: Webhook
+  resource: webhooks
+- name: Identity
+  resource: identities
+- name: KycValidation
+  resource: kyc_validations
+- name: CurpValidation
+  resource: curp_validations
+- name: Verification
+  resource: verifications
+relationships:
+- from: Transfer
+  to: User
+  kind: belongs_to
+  via: user_id
+- from: Transfer
+  to: Account
+  kind: belongs_to
+  via: destination_uri
+- from: Deposit
+  to: User
+  kind: belongs_to
+  via: user_id
+- from: Card
+  to: User
+  kind: belongs_to
+  via: user_id
+- from: CardTransaction
+  to: Card
+  kind: belongs_to
+  via: card
+- from: CardTransaction
+  to: CardTransaction
+  kind: belongs_to
+  via: related_transaction
+- from: BillPayment
+  to: ServiceProvider
+  kind: belongs_to
+  via: service_provider
+- from: Clabe
+  to: User
+  kind: belongs_to
+  via: user_id
+- from: Commission
+  to: Transfer
+  kind: belongs_to
+  via: related_transaction
+- from: User
+  to: Card
+  kind: has_many
+  via: user_id
+- from: User
+  to: Transfer
+  kind: has_many
+  via: user_id
+- from: User
+  to: Deposit
+  kind: has_many
+  via: user_id
+- from: User
+  to: Platform
+  kind: belongs_to
+  via: platform_id
+- from: KycValidation
+  to: User
+  kind: belongs_to
+  via: user_id
+- from: Identity
+  to: User
+  kind: belongs_to
+  via: user_id

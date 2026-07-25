@@ -1,0 +1,37 @@
+# Cuenca
+
+> Cuenca is a Mexican fintech (challenger bank / neobank) offering a banking-as-a-service REST API at api.cuenca.com for SPEI and internal transfers, deposits, CLABE account provisioning, debit card issuing (physical and virtual), card transactions, bill payments, balances, statements, and KYC / identity validation. Auth is API key + secret (HTTP Basic), with optional JWT and login/session tokens. Sandbox at sandbox.cuenca.com. Official Python (cuenca) and Java (CuencaJava) SDKs; webhooks for transaction, card, deposit and user events.
+
+## API
+- [Cuenca API base](https://api.cuenca.com): Production REST API host.
+- [Sandbox host](https://sandbox.cuenca.com): Test environment (cuenca.configure(sandbox=True)).
+
+## SDKs & Packages
+- [cuenca (PyPI)](https://pypi.org/project/cuenca/): Official Python client library.
+- [cuenca-validations (PyPI)](https://pypi.org/project/cuenca-validations/): Shared request/query/enum validation types.
+- [CuencaJava (Maven)](https://search.maven.org/artifact/com.cuenca/CuencaJava): Official Java client library.
+- [cuenca-shipping (npm)](https://www.npmjs.com/package/cuenca-shipping): Stencil web component for shipping addresses.
+
+## Docs
+- [cuenca-python README](https://github.com/cuenca-mx/cuenca-python#readme): Primary API usage & authentication reference.
+- [GitHub organization](https://github.com/cuenca-mx): All open-source SDKs and tooling.
+
+## Repo artifacts
+- [Authentication](authentication/cuenca-authentication.yml)
+- [Conventions (idempotency, pagination, versioning)](conventions/cuenca-conventions.yml)
+- [Error catalog](errors/cuenca-problem-types.yml)
+- [Card decline codes](errors/cuenca-decline-codes.yml)
+- [Webhooks / event catalog](asyncapi/cuenca-webhooks.yml)
+- [Data model](data-model/cuenca-data-model.yml)
+- [Lifecycle & status page](lifecycle/cuenca-lifecycle.yml)
+- [Sandbox](sandbox/cuenca-sandbox.yml)
+- [Conformance](conformance/cuenca-conformance.yml)
+- [MCP (candidate)](mcp/cuenca-mcp.yml)
+
+## Company
+- [Website](https://cuenca.com)
+- [Pricing / comisiones](https://cuenca.com/comisiones)
+- [Terms (contrato de adhesion)](https://cuenca.com/contrato-adhesion)
+- [Privacy (aviso de privacidad)](https://cuenca.com/aviso-privacidad)
+- [Status page](https://cuenca.statuspage.io)
+- [FAQ / support](https://cuenca.com/faq)

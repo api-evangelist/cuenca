@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: https://github.com/cuenca-mx/cuenca-python (resources/*)
+detail: >-
+  No official hosted Cuenca MCP server was found. This is a candidate tool list
+  derived from the SDK's read/create resource surface, mapping the money-movement
+  and account operations an agent would most need. Not an authoritative provider
+  manifest.
+server:
+  name: cuenca
+  transport: http
+  url: null
+tools:
+- name: create_transfer
+  description: Create a SPEI/internal transfer with an idempotency key.
+  source_operation: cuenca.Transfer.create
+- name: retrieve_transfer
+  description: Retrieve a transfer by id.
+  source_operation: cuenca.Transfer.retrieve
+- name: query_transfers
+  description: Query/list transfers (by status, account_number, idempotency_key).
+  source_operation: cuenca.Transfer.all
+- name: get_balance
+  description: Get the current account balance.
+  source_operation: cuenca.Balance.retrieve
+- name: list_deposits
+  description: Query received deposits.
+  source_operation: cuenca.Deposit.all
+- name: list_cards
+  description: List issued cards.
+  source_operation: cuenca.Card.all
+- name: list_card_transactions
+  description: Query card transactions.
+  source_operation: cuenca.CardTransaction.all
+- name: create_bill_payment
+  description: Pay a service-provider bill.
+  source_operation: cuenca.BillPayment.create
+- name: register_endpoint
+  description: Register a webhook endpoint.
+  source_operation: cuenca.Endpoint.create
+- name: validate_curp
+  description: Run a CURP identity validation.
+  source_operation: cuenca.CurpValidation.create

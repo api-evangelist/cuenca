@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-python + https://cuenca.statuspage.io
+versioning:
+  scheme: header
+  header: X-Cuenca-Api-Version
+  detail: Requests carry an X-Cuenca-Api-Version header set by the client library.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No public deprecation policy or RFC 8594 Sunset/Deprecation header support documented.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://cuenca.statuspage.io
+status_components:
+- SPEI
+- Card Transactions

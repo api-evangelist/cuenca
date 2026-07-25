@@ -1,8 +1,33 @@
 aid: cuenca
 name: Cuenca
-description: Cuenca is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Cuenca is a Mexican fintech (challenger bank / neobank) founded in 2018 that
+  offers a banking-as-a-service REST API for moving money in Mexico. The API at
+  api.cuenca.com covers SPEI and internal transfers, deposits, CLABE account
+  provisioning, debit card issuing (physical and virtual), card transactions,
+  bill payments to service providers, balances, statements, commissions, and
+  KYC / identity validation (CURP validation, identity verification, KYC
+  checks). It authenticates with an API key plus secret (HTTP basic), optional
+  short-lived JWTs, and login / session tokens, exposes a sandbox at
+  sandbox.cuenca.com, signs transfers with an idempotency key, paginates with a
+  cursor (next_page_uri), and pushes webhooks for transaction, card, deposit and
+  user events. Official client libraries ship for Python (cuenca) and Java
+  (CuencaJava), with open-source tooling for CLABE validation and CEP receipts
+  under the cuenca-mx GitHub organization.
 url: https://raw.githubusercontent.com/api-evangelist/cuenca/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cuenca.com/favicon.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +36,101 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Fintech
+- Payments
+- Banking
+- Neobank
+- SPEI
+- Card Issuing
+- Money Transfer
+- Mexico
+- KYC
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Cuenca API
+  description: >-
+    REST API for Cuenca's banking-as-a-service platform in Mexico: SPEI /
+    internal transfers, deposits, CLABE accounts, debit card issuing and card
+    transactions, bill payments, balances, statements, webhooks, and KYC /
+    identity validation. Authenticated with API key + secret (basic), JWT, and
+    login / session tokens; sandbox at sandbox.cuenca.com.
+  humanURL: https://github.com/cuenca-mx/cuenca-python
+  baseURL: https://api.cuenca.com
+  tags:
+  - Payments
+  - Banking
+  - SPEI
+  - Cards
+  - Transfers
+  properties:
+  - type: SourceCode
+    url: https://github.com/cuenca-mx
+common:
+- type: Website
+  url: https://cuenca.com
+- type: GitHubOrganization
+  url: https://github.com/cuenca-mx
+- type: Documentation
+  url: https://github.com/cuenca-mx/cuenca-python
+- type: APIReference
+  url: https://github.com/cuenca-mx/cuenca-python#readme
+- type: GettingStarted
+  url: https://github.com/cuenca-mx/cuenca-python#authentication
+- type: Support
+  url: https://cuenca.com/faq
+- type: Pricing
+  url: https://cuenca.com/comisiones
+- type: TermsOfService
+  url: https://cuenca.com/contrato-adhesion
+- type: PrivacyPolicy
+  url: https://cuenca.com/aviso-privacidad
+- type: StatusPage
+  url: https://cuenca.statuspage.io
+- type: Packages
+  url: packages/cuenca-packages.yml
+- type: SDKs
+  url: packages/cuenca-packages.yml
+- type: Authentication
+  url: authentication/cuenca-authentication.yml
+- type: Conventions
+  url: conventions/cuenca-conventions.yml
+- type: Idempotency
+  url: conventions/cuenca-conventions.yml
+- type: ErrorCatalog
+  url: errors/cuenca-problem-types.yml
+- type: DeclineCodes
+  url: errors/cuenca-decline-codes.yml
+- type: Lifecycle
+  url: lifecycle/cuenca-lifecycle.yml
+- type: Sandbox
+  url: sandbox/cuenca-sandbox.yml
+- type: DataModel
+  url: data-model/cuenca-data-model.yml
+- type: Conformance
+  url: conformance/cuenca-conformance.yml
+- type: Webhooks
+  url: asyncapi/cuenca-webhooks.yml
+- type: Components
+  url: components/cuenca-components.yml
+- type: MCPServer
+  url: mcp/cuenca-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/cuenca-llms.txt
+- type: DomainSecurity
+  url: security/cuenca-domain-security.yml
+- type: WellKnown
+  url: well-known/cuenca-well-known.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

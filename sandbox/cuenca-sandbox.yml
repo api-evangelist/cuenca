@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-python (http/client.py)
+environments:
+  live:
+    host: api.cuenca.com
+    base_url: https://api.cuenca.com
+  sandbox:
+    host: sandbox.cuenca.com
+    base_url: https://sandbox.cuenca.com
+enable:
+  python: cuenca.configure(sandbox=True)
+  detail: >-
+    The client library routes to sandbox.cuenca.com when configured with
+    sandbox=True (SANDBOX_HOST in http/client.py). Sandbox uses separate
+    credentials from production.
+key_prefixes:
+  api_key: PK
+test_values:
+  detail: >-
+    Cuenca does not publish a public catalog of magic test card numbers / CLABEs;
+    sandbox behavior is exercised with sandbox-issued credentials and resources.
+    No fabricated test values are recorded here.

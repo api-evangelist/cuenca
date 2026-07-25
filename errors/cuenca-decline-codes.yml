@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-validations (types/enums.py — CardErrorType, CardFraudType)
+detail: >-
+  Cuenca is a card issuer; card authorization declines/errors are published as
+  the CardErrorType enum in cuenca-validations. This complements the API-level
+  error catalog in errors/cuenca-problem-types.yml.
+envelope_field: error_type (on card_transaction objects)
+decline_codes:
+- code: blocked
+  meaning: Card is blocked.
+  action: Unblock the card or use another card.
+- code: insufficient_founds
+  meaning: Insufficient funds on the account (spelling per source enum).
+  action: Fund the account and retry.
+- code: notification
+  meaning: Notification-only decline.
+  action: Informational; review transaction.
+- code: notification_deactivated_card
+  meaning: Attempt on a deactivated card.
+  action: Reactivate or reissue the card.
+- code: contactless_amount_limit
+  meaning: Contactless transaction exceeded the allowed amount limit.
+  action: Insert/chip the card or lower the amount.
+- code: communication
+  meaning: Communication error with the network/processor.
+  action: Retry the transaction.
+- code: fraud_detection
+  meaning: Declined by fraud detection.
+  action: Contact the cardholder / review the transaction.
+- code: fraud_detection_uncertain
+  meaning: Uncertain fraud signal; flagged for review.
+  action: Review; may require cardholder confirmation.
+- code: invalid_pin
+  meaning: Incorrect PIN entered.
+  action: Re-enter the correct PIN.
+- code: cash_advance_daily_limit
+  meaning: Cash-advance daily limit reached.
+  action: Wait for the limit to reset or reduce the amount.
+fraud_types:
+- authorize
+- rejected
+- uncertain

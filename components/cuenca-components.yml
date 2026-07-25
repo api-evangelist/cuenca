@@ -1,0 +1,14 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-shipping
+components:
+- family: shipping
+  name: cuenca-shipping
+  kind: web-component
+  built_with: Stencil
+  loader: npm install cuenca-shipping
+  registry: https://www.npmjs.com/package/cuenca-shipping
+  repository: https://github.com/cuenca-mx/cuenca-shipping
+  description: >-
+    Client-side web component (custom element) to capture a customer's shipping
+    address, usable in any framework or plain HTML via the Stencil loader.

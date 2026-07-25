@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cuenca-mx/cuenca-python (http/client.py, resources/base.py, resources/transfers.py)
+docs: https://github.com/cuenca-mx/cuenca-python#readme
+authentication:
+  style: http-basic
+  detail: API key + secret (HTTP Basic); optional JWT and login/session tokens.
+  ref: authentication/cuenca-authentication.yml
+idempotency:
+  supported: true
+  mechanism: request-body-field
+  field: idempotency_key
+  scope: transfers (money-movement create)
+  detail: >-
+    Transfer creation takes an idempotency_key so re-sending the same request
+    does not duplicate a transfer. Cuenca strongly recommends using your own
+    internal database id as the key; the SDK will otherwise derive a fallback
+    key of the form `<utc-date>:<account_number>:<amount>`. Transfers are also
+    queryable by idempotency_key to reconcile a submission.
+pagination:
+  style: cursor
+  request_params:
+    page_size: Number of items per page (default and max 100).
+    limit: Optional cap on total items to iterate.
+    created_before: ISO datetime upper bound on created_at.
+    created_after: ISO datetime lower bound on created_at.
+    ids: Comma-separated id list (max 100).
+    count: "Set true to return only a { count } integer."
+  response_fields:
+    items: Array of resource objects for the page.
+    next_page_uri: Relative URI of the next page, or null/empty when exhausted.
+    count: Total count (only when count=true was requested).
+versioning:
+  style: header
+  header: X-Cuenca-Api-Version
+  detail: The client sends an API version header on every request.
+metadata:
+  detail: Money-movement resources carry a free-form descriptor and user_id / platform_id references.
+request_tracing:
+  detail: Not documented as a dedicated request-id header in the public SDK.
+error_envelope:
+  shape: "{ json: {...}, status_code: <int> }"
+  detail: >-
+    Non-2xx responses raise a CuencaResponseException carrying the parsed JSON
+    body and the HTTP status code. See errors/cuenca-problem-types.yml.
+  ref: errors/cuenca-problem-types.yml
+rate_limiting:
+  detail: No public rate-limit headers or policy documented.
+webhooks:
+  detail: Event delivery via registered endpoints; see asyncapi/cuenca-webhooks.yml.
+  ref: asyncapi/cuenca-webhooks.yml
