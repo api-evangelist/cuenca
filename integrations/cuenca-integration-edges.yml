@@ -1,16 +1,92 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/cuenca/integrations
 - https://n8n.io/integrations/cuenca/
 - https://composio.dev/toolkits/cuenca
 - https://monid.ai/tools/cuenca
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/cuenca
+- https://crates.io/api/v1
 - https://monid.ai/tools/cuenca
 - https://n8n.io/integrations/cuenca/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/apps/cuenca/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.cuenca/CuencaJava
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.cuenca:CuencaJava
+      version: 1.0.2
+      released: '2022-02-17'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.cuenca/CuencaJava
+      repo_leg: github-org:cuenca-mx
+      publisher_leg: groupId:cuenca.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: PyPI
+  partner: pypi
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/cuenca/
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: cuenca
+      version: 2.2.5
+      released: '2026-09-15'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/cuenca/
+      repo_leg: github-org:cuenca-mx
+      publisher_leg: email:cuenca.com
+      matched_by: domain
+    - name: cuenca-validations
+      version: 2.1.50
+      released: '2026-10-07'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/cuenca-validations/
+      repo_leg: github-org:cuenca-mx
+      publisher_leg: email:cuenca.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 templates: []
